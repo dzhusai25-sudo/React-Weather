@@ -1,5 +1,5 @@
 {
-  "name": "ghotus",
+  "name": "react-weather",
   "version": "1.0.0",
   "private": "true",
   "scripts": {
@@ -21,24 +21,33 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dzhusai25-sudo/CICD-ghPages.git"
+    "url": "git+https://github.com/dzhusai25-sudo/React-Weather.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dzhusai25-sudo/CICD-ghPages/issues"
+    "url": "https://github.com/dzhusai25-sudo/React-Weather/issues"
   },
-  "homepage": "https://dzhusai25-sudo.github.io/CICD-ghPages",
+  "homepage": "https://dzhusai25-sudo.github.io/React-Weather",
   "dependencies": {
-    "@types/jest": "^30.0.0",
-    "jsdom": "^28.0.0",
-    "node-fetch": "^3.3.2"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router": "^7.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.27.0",
+    "@eslint/css": "^1.0.0",
     "@eslint/js": "^9.39.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
     "babel-jest": "^30.2.0",
     "babel-loader": "^10.0.0",
     "cross-env": "^10.1.0",
