@@ -6,7 +6,7 @@ import prettier from 'eslint-config-prettier';
 
 export default defineConfig([
   {
-    files: ['./Task**/**/*.{js,mjs,cjs}'],
+    files: ['./src**/**/*.{js,mjs,cjs}'],
     plugins: { js },
     rules: {
       ...js.configs.recommended.rules,
@@ -17,7 +17,7 @@ export default defineConfig([
   },
   prettier,
   {
-    files: ['Task*/**/*.test.js'],
+    files: ['src*/**/*.test.js'],
     ...jest.configs['flat/recommended'],
   },
 ]);
