@@ -32,8 +32,7 @@
   "homepage": "https://dzhusai25-sudo.github.io/React-Weather",
   "dependencies": {
     "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-router": "^7.13.0"
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
