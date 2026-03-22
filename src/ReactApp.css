@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #e6f7ff;
   min-height: 100vh;
   display: flex;
@@ -34,7 +34,7 @@ body {
   margin-left: 12px;
   padding: 8px 16px;
   background-color: hsl(0, 0%, 0%);
-  color:#e6f7ff;
+  color: #e6f7ff;
   border: none;
   border-radius: 16px;
   cursor: pointer;
@@ -84,6 +84,17 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   font-family: inherit;
+}
+
+/* Карточка погоды */
+.Result {
+  border-radius: 16px;
+  width: 80%;
+  margin: auto;
+  background: #667eea 0%;
+  color: white;
+  text-align: center;
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {

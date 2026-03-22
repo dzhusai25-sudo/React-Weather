@@ -4,7 +4,6 @@ import { About } from "./pages/About";
 import { Contacts } from "./pages/Contacts";
 import { useState } from "react";
 
-
 export function ReactApp() {
   const [page, setPage] = useState("Home");
 
