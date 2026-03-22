@@ -13,6 +13,6 @@ jobs:
           node-version: "24.x" # Or your desired Node.js version
       - run: npm ci
       - run: npm run lint
-      - run: npx tsc --pretty
+      - run: npx tsc --noEmit --pretty
       - run: npm test
       - run: npm run build

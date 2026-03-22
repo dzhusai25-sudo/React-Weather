@@ -27,14 +27,13 @@
     // Style Options
     // "noImplicitReturns": true,
     // "noImplicitOverride": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noEmit": true,
+    "noUnusedLocals": true, // Выдаёт ошибку, если в файле объявлена локальная переменная, которая нигде не используется. Помогает убирать мёртвый код.
+    "noUnusedParameters": true, // Выдаёт ошибку, если параметр функции объявлен, но не используется. Помогает избежать неаккуратных сигнатур
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "strict": true,
+    "strict": true, // Включает максимальную строгость проверок TypeScript. Включает strictNullChecks, noImplicitAny, strictFunctionTypes и другие строгие опции. Рекомендуется для надёжного кода.
     "jsx": "react-jsx",
     "verbatimModuleSyntax": false,
     "isolatedModules": true,
