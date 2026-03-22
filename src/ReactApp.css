@@ -1,15 +1,101 @@
-/* 
-Базовый сброс отступов и полей 
-*/
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: hwb(199 47% 23%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e6f7ff;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 16px;
+}
+
+.ReactApp {
+  max-width: 500px;
+  width: 100%;
+  padding: 24px;
+  background-color: white;
+  border-radius: 45px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  min-height: 80vh;
+  transition: opacity 0.2s ease;
+}
+
+.navi {
+  text-align: right;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.navi button {
+  margin-left: 12px;
+  padding: 8px 16px;
+  background-color: hsl(0, 0%, 0%);
+  color:#e6f7ff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: inherit;
+}
+
+/* .navi button:hover {
+  background-color: #b0e0ff;
+} */
+
+/* Заголовок */
+.runApp {
+  text-align: center;
+  color: #1a73e8;
+}
+
+.orNot {
+  text-align: right;
+  color: #1a73e8;
+}
+
+/* Поле ввода */
+.input {
+  display: block;
+  width: 80%;
+  margin: 0 auto 24px auto;
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Кнопка */
+.button {
+  display: block;
+  width: 60%;
+  margin: 0 auto 24px auto;
+  padding: 16px;
+  background-color: hsl(53, 83%, 50%);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+@media (max-width: 600px) {
+  .ReactApp {
+    margin: 0;
+    padding: 16px;
+    min-height: 70vh;
+  }
+  .navi {
+    text-align: center;
+  }
+  .navi button {
+    margin: 0 6px;
+  }
 }
