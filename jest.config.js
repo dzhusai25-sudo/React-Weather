@@ -5,7 +5,7 @@
 const config = {
   testEnvironment: "jsdom",
   clearMocks: true,
-  collectCoverage: true,
+  collectCoverage: false,
   coverageDirectory: "coverage",
   coverageReporters: ["html", "text"],
   coverageProvider: "v8",
