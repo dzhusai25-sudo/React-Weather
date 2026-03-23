@@ -4,7 +4,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #e6f7ff;
+  background-color: rgba(0, 0, 0, 0.795);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -170,19 +170,4 @@ body {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
-}
-
-/* Медиазапрос для адаптивности */
-@media (max-width: 600px) {
-  .ReactApp {
-    margin: 0;
-    padding: 16px;
-    min-height: 70vh;
-  }
-  .navi {
-    text-align: center;
-  }
-  .navi button {
-    margin: 0 6px;
-  }
 }
