@@ -10,7 +10,7 @@ const PREFIX = isProduction ? BASE_URL : "/";
 module.exports = {
   entry: "./src/index.tsx",
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx']
+    extensions: [".tsx", ".ts", ".js", ".jsx"],
   },
   output: {
     filename: "main.js",
@@ -28,12 +28,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: './public/index.html',
+      template: "./public/index.html",
       publicPath: PREFIX,
     }),
     new HtmlWebpackPlugin({
       filename: "404.html",
-      template: './public/index.html',
+      template: "./public/index.html",
       publicPath: PREFIX,
     }),
     new webpack.DefinePlugin({

@@ -11,12 +11,19 @@ const config = {
   coverageProvider: "v8",
   coverageThreshold: {
     global: {
-      branches: 60,
-      functions: 60,
-      lines: 60,
-      statements: 60,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
     },
   },
+
+  // Игнор типов и вспомогательных файлов
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "/src/types.tsx",
+    "/src/__mocks__/",
+  ],
 
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
   testPathIgnorePatterns: ["/node_modules/", "/lib/"],
