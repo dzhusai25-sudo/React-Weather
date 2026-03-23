@@ -1,4 +1,9 @@
-import { WeatherData } from "../types";
+import {
+  WeatherData,
+  InputProps,
+  ButtonProps,
+  HistoryListProps,
+} from "../types";
 
 // Компонент заголовка приложения
 export const Header = () => {
@@ -9,11 +14,6 @@ export const Header = () => {
     </div>
   );
 };
-
-interface InputProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
 
 // Компонент ввода
 export const Input: React.FC<InputProps> = ({ value, onChange }) => {
@@ -26,11 +26,6 @@ export const Input: React.FC<InputProps> = ({ value, onChange }) => {
     />
   );
 };
-
-interface ButtonProps {
-  onClick: () => void;
-  disabled?: boolean;
-}
 
 // Компонент кнопки
 export const Button: React.FC<ButtonProps> = ({ onClick, disabled }) => {
@@ -59,7 +54,6 @@ export const Result: React.FC<{ weather: WeatherData | null }> = ({
   );
 };
 
-
 // Компонент загрузки
 export const Loader = () => {
   return <div className="loader">Загрузка...</div>;
@@ -71,11 +65,6 @@ export const ErrorMessage = ({ message }: { message: string }) => {
 };
 
 // Компонент истории поиска
-interface HistoryListProps {
-  history: string[];
-  onItemClick: (city: string) => void;
-}
-
 export const HistoryList = ({ history, onItemClick }: HistoryListProps) => {
   if (history.length === 0) return null;
 
@@ -84,7 +73,11 @@ export const HistoryList = ({ history, onItemClick }: HistoryListProps) => {
       История поиска:
       <ul>
         {history.map((item, idx) => (
-          <li key={idx} onClick={() => onItemClick(item)} style={{ cursor: "pointer" }}>
+          <li
+            key={idx}
+            onClick={() => onItemClick(item)}
+            style={{ cursor: "pointer" }}
+          >
             {item}
           </li>
         ))}
@@ -92,4 +85,3 @@ export const HistoryList = ({ history, onItemClick }: HistoryListProps) => {
     </div>
   );
 };
-

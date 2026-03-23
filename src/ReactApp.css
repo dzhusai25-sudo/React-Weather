@@ -14,13 +14,13 @@ body {
 }
 
 .ReactApp {
-  max-width: 500px;
+  max-width: 430px;
   width: 100%;
   padding: 24px;
   background-color: white;
   border-radius: 45px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  min-height: 80vh;
+  min-height: 50vh;
   transition: opacity 0.2s ease;
 }
 
@@ -46,7 +46,7 @@ body {
 }
 
 .button:hover {
-  background-color:hsl(49, 83%, 51%);
+  background-color: hsl(49, 83%, 51%);
   color: #24292e;
 }
 
@@ -113,7 +113,6 @@ body {
   overflow: hidden;
 }
 
-
 /* Блок истории поиска */
 .history {
   margin-top: 24px;
@@ -138,7 +137,9 @@ body {
   background-color: #e9ecef;
   border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 }
 
 .history li:hover {
@@ -169,5 +170,7 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }

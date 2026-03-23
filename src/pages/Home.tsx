@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { getWeather } from "../services/getWeather";
-import { 
-  Header, 
-  Input, 
-  Button, 
-  Loader, 
-  Result, 
-  ErrorMessage, 
-  HistoryList
+import {
+  Header,
+  Input,
+  Button,
+  Loader,
+  Result,
+  ErrorMessage,
+  HistoryList,
 } from "../components/HomePageElements";
 import { WeatherData } from "../types";
 
@@ -54,7 +54,10 @@ export function Home() {
       setCity("");
       // Обновляем историю: добавляем город в начало, убираем дубликаты
       setHistory((prev) => {
-        const newHistory = [searchCity, ...prev.filter((item) => item !== searchCity)];
+        const newHistory = [
+          searchCity,
+          ...prev.filter((item) => item !== searchCity),
+        ];
         return newHistory.slice(0, 3);
       });
     } catch (error) {
@@ -64,7 +67,7 @@ export function Home() {
       setLoading(false);
     }
   };
-  
+
   // Обработчик кнопки "Get Weather"
   const handleGetWeather = () => {
     performSearch(city);
