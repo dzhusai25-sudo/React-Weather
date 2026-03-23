@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { ReactApp } from "./ReactApp";
 import "@testing-library/jest-dom";
 
-// Мокаем дочерние компоненты, чтобы не загружать реальные страницы со сложной логикой
 jest.mock("./pages/Home", () => ({
   Home: () => <div data-testid="home-page">Home Page Mock</div>,
 }));

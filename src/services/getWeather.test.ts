@@ -1,10 +1,9 @@
 import { getWeather } from "./getWeather";
 
-// Мок глобального fetch
 const mockFetch = jest.fn();
 global.fetch = mockFetch;
 
-describe("getWeather", () => {
+describe("getWeather service", () => {
   const city = "Moscow";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=97d93f1704dcb8e35dd2045c8e75710d&lang=ru`;
 

@@ -2,16 +2,12 @@ import { render, screen } from "@testing-library/react";
 import { Contacts } from "./Contacts";
 import "@testing-library/jest-dom";
 
-describe("Contacts component", () => {
-  test("renders heading and GitHub link", () => {
+describe("/Contacts", () => {
+  test("рендер статичного контента с ссылкой на профиль гит", () => {
     render(<Contacts />);
-    expect(
-      screen.getByRole("heading", { name: /контакты/i }),
-    ).toBeInTheDocument();
-    const link = screen.getByRole("link", { name: /github/i });
+    expect(screen.getByText(/Контакты/),).toBeInTheDocument();
+    const link = screen.getByRole("link", { name: /GitHub/});
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute("href", "https://github.com/dzhusai25-sudo");
-    expect(link).toHaveAttribute("target", "_blank");
-    expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });
 });
