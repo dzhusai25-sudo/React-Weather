@@ -6,7 +6,7 @@ export async function getWeather(city: string) {
   );
 
   if (!response.ok) {
-    if (response.status === 404) throw new Error("Город не найден");
+    if (response.status === 404) throw new Error(`Город ${city} не найден. Проверьте название города.`);
     throw new Error("Ошибка API");
   }
 

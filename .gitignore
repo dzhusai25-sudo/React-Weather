@@ -3,3 +3,7 @@ node_modules
 coverage
 .DS_Store
 lib
+*.d.ts
+*.d.ts.map
+*.js
+*.js.map

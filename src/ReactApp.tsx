@@ -11,8 +11,8 @@ export function ReactApp() {
     <div className="ReactApp">
       <nav className="navi">
         <button onClick={() => setPage("Home")}>🌤 Главная</button>
-        <button onClick={() => setPage("About")}>ℹ️ О приложении</button>
-        <button onClick={() => setPage("Contacts")}>👤 Контакты</button>
+        <button onClick={() => setPage("About")}>О приложении</button>
+        <button onClick={() => setPage("Contacts")}>Контакты</button>
       </nav>
       {page === "Contacts" && <Contacts />}
       {page === "About" && <About />}
