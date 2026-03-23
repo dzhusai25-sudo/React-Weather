@@ -65,13 +65,18 @@ describe("/Home", () => {
 
     expect(screen.getByText("Moscow, RU")).toBeInTheDocument();
     expect(screen.getByPlaceholderText("Ваш город")).toHaveValue("");
-    expect(localStorageMock.setItem).toHaveBeenCalledWith("weatherHistory",JSON.stringify(["Moscow"]),);
+    expect(localStorageMock.setItem).toHaveBeenCalledWith(
+      "weatherHistory",
+      JSON.stringify(["Moscow"]),
+    );
     expect(screen.getByText("История поиска:")).toBeInTheDocument();
     expect(screen.getByText("Moscow")).toBeInTheDocument();
   });
 
   test("ошибка при поиске: поле не очищается, история не обновляется", async () => {
-    mockGetWeather.mockRejectedValueOnce(new Error("Город InvalidCity не найден. Проверьте название города."));
+    mockGetWeather.mockRejectedValueOnce(
+      new Error("Город InvalidCity не найден. Проверьте название города."),
+    );
 
     render(<Home />);
     localStorageMock.setItem.mockClear();
@@ -80,11 +85,15 @@ describe("/Home", () => {
     fireEvent.click(screen.getByText("Get Weather"));
 
     await waitFor(() => {
-      expect(screen.getByText('Город InvalidCity не найден. Проверьте название города.')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          "Город InvalidCity не найден. Проверьте название города.",
+        ),
+      ).toBeInTheDocument();
     });
     expect(screen.getByPlaceholderText("Ваш город")).toHaveValue("InvalidCity");
     expect(localStorageMock.setItem).not.toHaveBeenCalled();
-    expect(screen.queryByText('История поиска:')).not.toBeInTheDocument();
+    expect(screen.queryByText("История поиска:")).not.toBeInTheDocument();
   });
 
   test("клик по элементу истории выполняет поиск", async () => {
@@ -110,11 +119,16 @@ describe("/Home", () => {
       expect(screen.getByText("London, GB")).toBeInTheDocument();
     });
 
-    expect(localStorageMock.setItem).toHaveBeenCalledWith("weatherHistory", JSON.stringify(["London"]),);
+    expect(localStorageMock.setItem).toHaveBeenCalledWith(
+      "weatherHistory",
+      JSON.stringify(["London"]),
+    );
   });
 
   test("загрузка истории из localStorage при монтировании", () => {
-    localStorageMock.getItem.mockReturnValueOnce(JSON.stringify(["Paris", "Berlin"]),);
+    localStorageMock.getItem.mockReturnValueOnce(
+      JSON.stringify(["Paris", "Berlin"]),
+    );
     render(<Home />);
     expect(screen.getByText("Paris")).toBeInTheDocument();
     expect(screen.getByText("Berlin")).toBeInTheDocument();
