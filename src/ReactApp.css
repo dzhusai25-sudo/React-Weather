@@ -40,7 +40,6 @@ body {
   text-decoration: none;
 }
 
-.navi button:hover,
 .github-link:hover {
   background-color: #0366d6;
 }
@@ -61,12 +60,6 @@ body {
   text-transform: uppercase;
 }
 
-/* Если хотите для кнопки Get Weather другой hover (жёлтый), раскомментируйте и при необходимости добавьте */
-/* .button:hover {
-  background-color: #f0c14b;
-  color: #111;
-} */
-
 /* Навигация */
 .navi {
   text-align: center;
@@ -74,9 +67,22 @@ body {
   margin-bottom: 24px;
 }
 
-.navi button {
-  margin-left: 12px;
+.navi a {
+  display: inline-block;
   padding: 8px 16px;
+  background-color: #24292e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: inherit;
+  text-decoration: none;
+  margin-left: 12px;
+}
+
+.navi a:hover {
+  background-color: #0366d6;
 }
 
 /* Заголовок */

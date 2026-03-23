@@ -9,7 +9,6 @@ export function useWeather() {
   const [loading, setLoading] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
 
-  // Загрузка истории из localStorage
   useEffect(() => {
     const savedHistory = localStorage.getItem('weatherHistory');
     if (savedHistory) {
@@ -24,12 +23,10 @@ export function useWeather() {
     }
   }, []);
 
-  // Сохранение истории в localStorage
   useEffect(() => {
     localStorage.setItem('weatherHistory', JSON.stringify(history));
   }, [history]);
 
-  // Основная функция поиска погоды
   const performSearch = useCallback(async (searchCity: string) => {
     if (!searchCity.trim()) {
       setError('Введите название города');
@@ -42,8 +39,8 @@ export function useWeather() {
     try {
       const data = await getWeather(searchCity);
       setWeather(data);
-      setCity(''); // очищаем поле ввода
-      // Обновляем историю: добавляем город в начало, убираем дубликаты
+      setCity('');
+
       setHistory(prev => {
         const newHistory = [searchCity, ...prev.filter(item => item !== searchCity)];
         return newHistory.slice(0, 3);
@@ -56,12 +53,17 @@ export function useWeather() {
     }
   }, []);
 
-  // Обработчик кнопки поиска (использует текущий city)
+    const reset = useCallback(() => {
+    setWeather(null);
+    setError('');
+    setCity('');
+  }, []);
+
+
   const handleGetWeather = useCallback(() => {
     performSearch(city);
   }, [city, performSearch]);
 
-  // Обработчик клика по элементу истории
   const handleHistoryClick = useCallback((cityName: string) => {
     performSearch(cityName);
   }, [performSearch]);
@@ -75,5 +77,7 @@ export function useWeather() {
     history,
     handleGetWeather,
     handleHistoryClick,
+    performSearch,
+    reset
   };
 }

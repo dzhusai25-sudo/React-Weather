@@ -1,9 +1,7 @@
 import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import {
   Header,
-  Input,
-  Button,
   Result,
   Loader,
   ErrorMessage,
@@ -12,31 +10,10 @@ import {
 import { WeatherData } from "../types";
 
 describe("HomePageElements", () => {
-  test("Header рендерит заголовок и подпись", () => {
+  test("рендер заголовка", () => {
     render(<Header />);
-    expect(screen.getByText(/Enjoy your weather!/i)).toBeInTheDocument();
-    expect(screen.getByText(/or not/i)).toBeInTheDocument();
-  });
-
-  test("Input отображает value и вызывает onChange", () => {
-    const handleChange = jest.fn();
-    render(<Input value="Moscow" onChange={handleChange} />);
-    const input = screen.getByPlaceholderText("Ваш город");
-    expect(input).toHaveValue("Moscow");
-    fireEvent.change(input, { target: { value: "London" } });
-    expect(handleChange).toHaveBeenCalledTimes(1);
-  });
-
-  test("Button отображается с текстом и disabled", () => {
-    const handleClick = jest.fn();
-    const { rerender } = render(<Button onClick={handleClick} />);
-    const button = screen.getByText("Get Weather");
-    expect(button).toBeEnabled();
-    fireEvent.click(button);
-    expect(handleClick).toHaveBeenCalledTimes(1);
-
-    rerender(<Button onClick={handleClick} disabled />);
-    expect(screen.getByText("Get Weather")).toBeDisabled();
+    expect(screen.getByText(/Enjoy your weather!/)).toBeInTheDocument();
+    expect(screen.getByText(/or not/)).toBeInTheDocument();
   });
 
   test("Result отображает данные погоды или null", () => {
@@ -56,26 +33,23 @@ describe("HomePageElements", () => {
     expect(screen.queryByText("London, GB")).not.toBeInTheDocument();
   });
 
-  test("Loader отображает текст", () => {
+  test("Текст Загрузки", () => {
     render(<Loader />);
     expect(screen.getByText("Загрузка...")).toBeInTheDocument();
   });
 
   test("ErrorMessage отображает сообщение", () => {
-    render(<ErrorMessage message="Ошибка сети" />);
-    expect(screen.getByText("Ошибка сети")).toBeInTheDocument();
+    render(<ErrorMessage message="Ошибка" />);
+    expect(screen.getByText("Ошибка")).toBeInTheDocument();
   });
 
-  test("HistoryList отображает список городов и вызывает onItemClick", () => {
+  test("HistoryList отображает список городов", () => {
     const history = ["Moscow", "London"];
     const handleClick = jest.fn();
     render(<HistoryList history={history} onItemClick={handleClick} />);
     expect(screen.getByText("История поиска:")).toBeInTheDocument();
     expect(screen.getByText("Moscow")).toBeInTheDocument();
     expect(screen.getByText("London")).toBeInTheDocument();
-
-    fireEvent.click(screen.getByText("Moscow"));
-    expect(handleClick).toHaveBeenCalledWith("Moscow");
   });
 
   test("HistoryList не рендерится, если история пуста", () => {

@@ -34,7 +34,7 @@ describe("getWeather service", () => {
     );
   });
 
-  test("выбрасывает общую ошибку API при других кодах", async () => {
+  test("выбрасывает общую ошибку API", async () => {
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,

@@ -24,7 +24,8 @@ const config = {
     "/src/types.tsx",
     "/src/__mocks__/",
   ],
-
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
   testPathIgnorePatterns: ["/node_modules/", "/lib/"],
   preset: "ts-jest",

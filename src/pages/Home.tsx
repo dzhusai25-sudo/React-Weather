@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useWeather } from '../hooks/useWeather';
 import {
   Header,
@@ -11,6 +13,8 @@ import {
 
 
 export function Home() {
+  const navigate = useNavigate();
+  const { city: cityParam } = useParams<{ city: string }>();
   const {
     city,
     setCity,
@@ -18,9 +22,28 @@ export function Home() {
     error,
     loading,
     history,
-    handleGetWeather,
-    handleHistoryClick,
+    performSearch,
+    reset
   } = useWeather();
+
+      useEffect(() => {
+    if (cityParam) {
+      performSearch(cityParam);
+    } else {
+      reset();
+    }
+  }, [cityParam, performSearch, reset]);
+
+  const handleGetWeather = () => {
+    if (city.trim()) {
+      navigate(`/weather/${city}`);
+      setCity('');
+    }
+  };
+
+  const handleHistoryClick = (cityName: string) => {
+    navigate(`/weather/${cityName}`);
+  };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && city.trim()) {
