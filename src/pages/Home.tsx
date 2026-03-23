@@ -18,7 +18,7 @@ export function Home() {
   const [loading, setLoading] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
 
-  // Загружаем историю из localStorage при монтировании
+  // Загружаем историю из localStorage
   useEffect(() => {
     const savedHistory = localStorage.getItem("weatherHistory");
     if (savedHistory) {
@@ -33,7 +33,7 @@ export function Home() {
     }
   }, []);
 
-  // Сохраняем историю в localStorage при каждом изменении
+  // Сохраняем историю в localStorage
   useEffect(() => {
     localStorage.setItem("weatherHistory", JSON.stringify(history));
   }, [history]);
@@ -68,14 +68,13 @@ export function Home() {
     }
   };
 
-  // Обработчик кнопки "Get Weather"
+  // Обработчик кнопки
   const handleGetWeather = () => {
     performSearch(city);
   };
 
   // Обработчик клика по элементу истории
   const handleHistoryClick = (cityName: string) => {
-    // setCity(cityName);
     performSearch(cityName);
   };
 
