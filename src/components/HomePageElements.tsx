@@ -16,13 +16,14 @@ export const Header = () => {
 };
 
 // Компонент ввода
-export const Input: React.FC<InputProps> = ({ value, onChange }) => {
+export const Input: React.FC<InputProps> = ({ value, onChange, onKeyDown }) => {
   return (
     <input
       placeholder="Ваш город"
       className="input"
       value={value}
       onChange={onChange}
+      onKeyDown={onKeyDown}
     />
   );
 };
