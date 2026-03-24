@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/React-Weather">
+    <BrowserRouter>
       <ReactApp />
     </BrowserRouter>
   </React.StrictMode>,

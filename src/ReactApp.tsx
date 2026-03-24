@@ -17,6 +17,7 @@ export function ReactApp() {
         <Route path="/weather/:city" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="/*" element={<Home />} /> /* редирект с 404 на HomePage */
       </Routes>
     </div>
   );

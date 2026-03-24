@@ -11,7 +11,8 @@
     "dev": "cross-env NODE_ENV=development webpack serve --mode=development --open",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
-    "deploy": "cross-env PUBLIC_URL=/React-Weather npm run build && gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "type-check": "tsc --noEmit --pretty"
   },
   "lint-staged": {
     "*.{js,cjs,mjs,css,md,yml,html}": [
