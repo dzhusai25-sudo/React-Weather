@@ -11,7 +11,7 @@
     "dev": "cross-env NODE_ENV=development webpack serve --mode=development --open",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
-    "deploy": "gh-pages -d dist",
+    "deploy": "npm run build && gh-pages -d dist",
     "type-check": "tsc --noEmit --pretty"
   },
   "lint-staged": {
