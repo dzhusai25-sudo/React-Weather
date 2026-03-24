@@ -6,14 +6,16 @@ import { ReactApp } from "./ReactApp";
 
 jest.mock("./pages/Home", () => ({ Home: () => <div>Home Page</div> }));
 jest.mock("./pages/About", () => ({ About: () => <div>About Page</div> }));
-jest.mock("./pages/Contacts", () => ({ Contacts: () => <div>Contacts Page</div> }));
+jest.mock("./pages/Contacts", () => ({
+  Contacts: () => <div>Contacts Page</div>,
+}));
 
 describe("ReactApp", () => {
   test("рендерит главную страницу по умолчанию", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <ReactApp />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     expect(screen.getByText("Home Page")).toBeInTheDocument();
   });
@@ -23,7 +25,7 @@ describe("ReactApp", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <ReactApp />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     await user.click(screen.getByText("О приложении"));
     expect(screen.getByText("About Page")).toBeInTheDocument();
@@ -34,7 +36,7 @@ describe("ReactApp", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <ReactApp />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     await user.click(screen.getByText("Контакты"));
     expect(screen.getByText("Contacts Page")).toBeInTheDocument();

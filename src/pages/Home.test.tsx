@@ -30,7 +30,7 @@ function renderHomeWithRoute(route: string) {
         <Route path="/" element={<Home />} />
         <Route path="/weather/:city" element={<Home />} />
       </Routes>
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 }
 
@@ -80,7 +80,7 @@ describe("Home", () => {
     expect(screen.getByPlaceholderText("Ваш город")).toHaveValue("");
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       "weatherHistory",
-      JSON.stringify(["Moscow"])
+      JSON.stringify(["Moscow"]),
     );
     expect(screen.getByText("История поиска:")).toBeInTheDocument();
     expect(screen.getByText("Moscow")).toBeInTheDocument();
@@ -102,19 +102,21 @@ describe("Home", () => {
     });
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       "weatherHistory",
-      JSON.stringify(["Moscow"])
+      JSON.stringify(["Moscow"]),
     );
   });
 
   test("ошибка при поиске по параметру URL отображается", async () => {
     mockGetWeather.mockRejectedValueOnce(
-      new Error("Город Invalid не найден. Проверьте название города.")
+      new Error("Город Invalid не найден. Проверьте название города."),
     );
 
     renderHomeWithRoute("/weather/Invalid");
 
     await waitFor(() => {
-      expect(screen.getByText("Город Invalid не найден. Проверьте название города.")).toBeInTheDocument();
+      expect(
+        screen.getByText("Город Invalid не найден. Проверьте название города."),
+      ).toBeInTheDocument();
     });
   });
 
@@ -142,7 +144,7 @@ describe("Home", () => {
     });
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       "weatherHistory",
-      JSON.stringify(["London"])
+      JSON.stringify(["London"]),
     );
   });
 });

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useWeather } from '../hooks/useWeather';
+import { useWeather } from "../hooks/useWeather";
 import {
   Header,
   Input,
@@ -10,7 +10,6 @@ import {
   ErrorMessage,
   HistoryList,
 } from "../components/HomePageElements";
-
 
 export function Home() {
   const navigate = useNavigate();
@@ -23,10 +22,10 @@ export function Home() {
     loading,
     history,
     performSearch,
-    reset
+    reset,
   } = useWeather();
 
-      useEffect(() => {
+  useEffect(() => {
     if (cityParam) {
       performSearch(cityParam);
     } else {
@@ -37,7 +36,7 @@ export function Home() {
   const handleGetWeather = () => {
     if (city.trim()) {
       navigate(`/weather/${city}`);
-      setCity('');
+      setCity("");
     }
   };
 
@@ -45,8 +44,8 @@ export function Home() {
     navigate(`/weather/${cityName}`);
   };
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && city.trim()) {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && city.trim()) {
       handleGetWeather();
     }
   };
@@ -54,7 +53,11 @@ export function Home() {
   return (
     <div>
       <Header />
-      <Input value={city} onChange={(e) => setCity(e.target.value)} onKeyDown={handleKeyDown}/>
+      <Input
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
       {city.trim() && <Button onClick={handleGetWeather} disabled={loading} />}
       {loading && <Loader />}
       <Result weather={weather} />

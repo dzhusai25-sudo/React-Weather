@@ -12,7 +12,6 @@ export function ReactApp() {
         <NavLink to="/about">О приложении</NavLink>
         <NavLink to="/contacts">Контакты</NavLink>
       </nav>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/weather/:city" element={<Home />} />
