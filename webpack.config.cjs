@@ -6,6 +6,7 @@ const isProduction = process.env.NODE_ENV === "production";
 const REPO_NAME = "React-Weather";
 const BASE_URL = `https://dzhusai25-sudo.github.io/${REPO_NAME}/`;
 const PREFIX = isProduction ? BASE_URL : "/";
+const BASENAME = isProduction ? `/${REPO_NAME}` : "/";
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -40,6 +41,7 @@ module.exports = {
       PRODUCTION: isProduction,
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       PREFIX: JSON.stringify(PREFIX),
+      BASENAME: JSON.stringify(BASENAME),
     }),
   ],
   module: {
